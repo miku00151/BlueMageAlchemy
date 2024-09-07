@@ -10,83 +10,170 @@
             .bg-indigo{
                 background-color: rgb(123, 45, 248);
             }
-            .text-indigo{
-                color: rgb(123, 45, 248);
+            .bg-orange{
+                background-color: rgb(239, 134, 13);
+            }
+            .bg-gray{
+                background-color: rgb(128,128,128);
+            }
+            .bg-purple{
+                background-color: rgb(109, 23, 247);
+            }
+            .bg-sand{
+                background-color: rgb(217, 203, 144);
+            }
+            .bg-ore{
+                background-color: rgb(68, 68, 68);
+            }
+            .bg-seawater{
+                background-color: rgb(51, 149, 210);
+            }
+            .box-sand-shadow:hover{
+                background-color: rgb(200, 190, 130);
+            }
+            .box-sand-shadow:focus{
+                outline: none;
+                background-color: rgb(200, 190, 130);
+                border-color: rgb(195, 185, 125);
+                box-shadow: 0 0 0 4px rgba(217,203,144, 0.5);
+            }
+            .box-ore-shadow:hover{
+                background-color: rgb(85, 85, 85);
+            }
+            .box-ore-shadow:focus{
+                outline: none;
+                background-color: rgb(85, 85, 85);
+                border-color: rgb(80, 80, 80);
+                box-shadow: 0 0 0 4px rgba(68,68,68, 0.5);
             }
         </style>
     </head>
     <body>
-        <h1 id="game-title">藍魔法師煉金術</h1>
-        <div id="main-domain" class="container p-0">
-            <div class="row">
-                <div id="level" class="p-4">等級：</div>
-                <div class="col">
-                    <div id="status-bars" class="container">
-                        <div id="status-label">自身數值</div>
-                        <div id="mana-main" class="container p-0">
-                            <div id="mana-label">魔力值</div>
-                            <div id="mana" class="progress">
-                                <div id="mana-bar" class="progress-bar progress-bar-striped progress-bar-animated bg-info" role="progressbar" style="width: 12%"></div>
-                            </div>
-                        </div>
-                        <div id="prestige-main" class="container p-0">
-                            <div id="prestige-label">聲望值</div>
-                            <div id="prestige" class="progress">
-                                <div id="prestige-bar" class="progress-bar progress-bar-striped progress-bar-animated bg-indigo" role="progressbar" style="width: 12%"></div>
-                            </div>
-                        </div>
+        <h1 id="game-title" class="p-3">藍魔法師煉金</h1>
+        <div id="main-game" class="container">
+            <p id="level" class="p-1">等級：</p>
+            <div id="status-bars" class="container p-1">自身數值
+                <div id="mana-main" class="container p-0">
+                    <div id="mana-label">魔力值</div>
+                    <div id="mana" class="progress">
+                        <div id="mana-bar" class="progress-bar progress-bar-striped progress-bar-animated bg-info" role="progressbar" style="width: 12%"></div>
                     </div>
                 </div>
-                <div class="col-2"></div>
-                <div class="col">
-                    <div id="elements" class="container">
-                        <div id="elements-label">持有元素</div>
-                        <div id="carbon-main" class="container p-0">
-                            <div id="carbon-label">碳(C)</div>
+                <div id="prestige-main" class="container p-0">
+                    <div id="prestige-label">聲望值</div>
+                    <div id="prestige" class="progress">
+                        <div id="prestige-bar" class="progress-bar progress-bar-striped progress-bar-animated bg-indigo" role="progressbar" style="width: 12%"></div>
+                    </div>
+                </div>
+            </div>
+            <div id="elements" class="container p-1">持有元素
+                <div class="row">
+                    <div class="col">
+                        <div id="carbon-main" class="container p-0">碳(C)
                             <div id="carbon" class="progress">
                                 <div id="carbon-bar" class="progress-bar progress-bar-striped progress-bar-animated bg-dark" role="progressbar" style="width: 12%;"></div>
                             </div>
                         </div>
-                        <div id="hydrogen-main" class="container p-0">
-                            <div id="hydrogen-label">氫(H)</div>
+                        <div id="hydrogen-main" class="container p-0">氫(H)
                             <div id="hydrogen" class="progress">
                                 <div id="hydrogen-bar" class="progress-bar progress-bar-striped progress-bar-animated bg-danger" role="progressbar" style="width: 12%;"></div>
                             </div>
                         </div>
-                        <div id="oxygen-main" class="container p-0">
-                            <div id="oxygen-label">氧(O)</div>
+                        <div id="oxygen-main" class="container p-0">氧(O)
                             <div id="oxygen" class="progress">
                                 <div id="oxygen-bar" class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" style="width: 12%;"></div> 
                             </div>
                         </div>
-                    </div>
-                </div>
-                <div class="w-100"></div>
-                <div class="col">
-                    <div id="items" class="container p-4">
-                        <div id="items-label">儲備物品</div>
-                        <div id="water-main" class="container p-0">
-                            <div id="water-label">水</div>
-                            <div id="water" class="progress">
-                                <div id="water-bar" class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" style="width: 12%;"></div>
+                        <div id="nitrogen-main" class="container p-0">
+                            <div id="nitrogen-label">氮(N)</div>
+                            <div id="nitrogen" class="progress">
+                                <div id="nitrogen-bar" class="progress-bar progress-bar-striped progress-bar-animated bg-orange" role="progressbar" style="width: 12%;"></div>
                             </div>
                         </div>
-                        <div id="coal-main" class="container p-0">
-                            <div id="coal-label">煤炭</div>
-                            <div id="coal" class="progress">
-                                <div id="coal-bar" class="progress-bar progress-bar-striped progress-bar-animated bg-dark" role="progressbar" style="width: 12%;"></div>
+                    </div>
+                    <div class="col">
+                        <div id="silicon-main" class="container p-0">矽(Si)
+                            <div id="silicon" class="progress">
+                                <div id="silicon-bar" class="progress-bar progress-bar-striped progress-bar-animated bg-gray" role="progressbar" style="width: 12%;"></div>
                             </div>
                         </div>
-                        
-                    </div>
-                </div>
-                <div class="w-100"></div>
-                <div class="col align-self-end">
-                    <div id="buttons" class="container p-0">
-                        
+                        <div id="chlorine-main" class="container p-0">氯(Cl)
+                            <div id="chlorine" class="progress">
+                                <div id="chlorine-bar" class="progress-bar progress-bar-striped progress-bar-animated bg-success" role="progressbar" style="width: 12%;"></div>
+                            </div>
+                        </div>
+                        <div id="sulfur-main" class="container p-0">硫(S)
+                            <div id="sulfur" class="progress">
+                                <div id="sulfur-bar" class="progress-bar progress-bar-striped progress-bar-animated bg-warning" role="progressbar" style="width: 12%;"></div> 
+                            </div>
+                        </div>
+                        <div id="phosphorus-main" class="container p-0">磷(P)
+                            <div id="phosphorus" class="progress">
+                                <div id="phosphorus-bar" class="progress-bar progress-bar-striped progress-bar-animated bg-purple" role="progressbar" style="width: 12%;"></div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
+            <div id="items" class="container p-1">儲備物品
+                <div id="water-main" class="container p-0">
+                    <div id="water-label">水</div>
+                    <div id="water" class="progress">
+                        <div id="water-bar" class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" style="width: 12%;"></div>
+                    </div>
+                </div>
+                <div id="sand-main" class="container p-0">
+                    <div id="sand-label">沙子</div>
+                    <div id="sand" class="progress">
+                        <div id="sand-bar" class="progress-bar progress-bar-striped progress-bar-animated bg-sand" role="progressbar" style="width: 12%;"></div>
+                    </div>
+                </div>
+                <div id="coal-main" class="container p-0">
+                    <div id="coal-label">原礦</div>
+                    <div id="coal" class="progress">
+                        <div id="coal-bar" class="progress-bar progress-bar-striped progress-bar-animated bg-ore" role="progressbar" style="width: 12%;"></div>
+                    </div>
+                </div>
+                <div id="seawater-main" class="container p-0">
+                    <div id="seawater-label">海水</div>
+                    <div id="seawater" class="progress">
+                        <div id="seawater-bar" class="progress-bar progress-bar-striped progress-bar-animated bg-seawater" role="progressbar" style="width: 12%;"></div>
+                    </div>
+                </div>
+            </div>
+            <div id="bottons" class="container p-1">操作
+                <div class="d-grid gap-2 d-flex justify-content-end">
+                    <button id="digSand" class="btn bg-sand box-sand-shadow">挖沙</button>
+                    <button id="digOre" class="btn bg-ore box-ore-shadow text-light">挖礦</button>
+                    <button id="addWater" class="btn btn-primary">加水</button>
+                </div>
+                <div class="row p-3"></div>
+                <div class="d-grid gap-2 d-flex justify-content-end">
+                    <button id="toBottle" class="btn btn-outline-secondary">裝罐</button>
+                    <button id="toBucket" class="btn btn-outline-secondary">裝桶</button>
+                </div>
+                <div class="row p-3"></div>
+                <div class="d-grid gap-2 d-flex justify-content-end">
+                    <button id="refineElement" class="btn btn-outline-primary">元素提煉</button>
+                    <button id="alchemiteItem" class="btn btn-outline-primary">物品煉成</button>
+                </div>
+                <div class="row p-3"></div>
+                <div class="d-grid gap-2 d-flex justify-content-end">
+                    <button id="manageEmployee" class="btn btn-outline-primary">僱員管理</button>
+                    
+                    <button id="manageItem" class="btn btn-outline-primary">物品管理</button>
+                    <button id="openShop" class="btn btn-outline-primary">打開商店</button>
+                </div>
+                
+            </div>
         </div>
+        <script src="libs/elements.js"></script>
+        <script src="libs/items.js"></script>
+        <script src="libs/mage.js"></script>
+        <script src="libs/money.js"></script>
+        <script src="libs/player.js"></script>
+        <script src="libs/progress.js"></script>
+        <script src="libs/shop.js"></script>
+        <script src="game.js"></script>
     </body>
 </html>
