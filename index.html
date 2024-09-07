@@ -8,7 +8,7 @@
     </head>
     <body>
         <h1 id="game-title">藍魔法師煉金術</h1>
-        <div id="main-domain">
+        <div id="main-domain" class="container p-0">
             <div class="row">
                 <div id="level" class="p-4">等級：</div>
                 <div class="col">
@@ -24,22 +24,47 @@
                         </div>
                     </div>
                 </div>
+                <div class="col-2"></div>
                 <div class="col">
-                    <div id="items" class="container">
-                        <div id="items-label">持有元素</div>
-                        <div id="carbon-label">碳(C)</div>
-                        <div id="carbon" class="progress">
-                            <div id="carbon-bar" class="progress-bar progress-bar-striped progress-bar-animated bg-dark" role="progressbar" style="width: 12%;"></div>
+                    <div id="elements" class="container">
+                        <div id="elements-label">持有元素</div>
+                        <div id="carbon-main" class="container p-0">
+                            <div id="carbon-label">碳(C)</div>
+                            <div id="carbon" class="progress">
+                                <div id="carbon-bar" class="progress-bar progress-bar-striped progress-bar-animated bg-dark" role="progressbar" style="width: 12%;"></div>
+                            </div>
                         </div>
-                        <div id="hydrogen-label">氫(H)</div>
-                        <div id="hydrogen" class="progress">
-                            <div id="hydrogen-bar" class="progress-bar progress-bar-striped progress-bar-animated bg-danger" role="progressbar" style="width: 12%;"></div>
+                        <div id="hydrogen-main" class="container p-0">
+                            <div id="hydrogen-label">氫(H)</div>
+                            <div id="hydrogen" class="progress">
+                                <div id="hydrogen-bar" class="progress-bar progress-bar-striped progress-bar-animated bg-danger" role="progressbar" style="width: 12%;"></div>
+                            </div>
                         </div>
-                        <div id="oxygen-label">氧(O)</div>
-                        <div id="oxygen" class="progress">
-                            <div id="oxygen-bar" class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" style="width: 12%;"></div> 
+                        <div id="oxygen-main" class="container p-0">
+                            <div id="oxygen-label">氧(O)</div>
+                            <div id="oxygen" class="progress">
+                                <div id="oxygen-bar" class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" style="width: 12%;"></div> 
+                            </div>
                         </div>
                     </div>
+                </div>
+                <div class="w-100"></div>
+                <div class="col">
+                    <div id="items" class="container p-4">
+                        <div id="items-label">儲備物品</div>
+                        <div id="water-label">水</div>
+                        <div id="water" class="progress">
+                            <div id="water-bar" class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" style="width: 12%;"></div>
+                        </div>
+                        <div id="coal-label">煤炭</div>
+                        <div id="coal" class="progress">
+                            <div id="coal-bar" class="progress-bar progress-bar-striped progress-bar-animated bg-dark" role="progressbar" style="width: 12%;"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="w-100"></div>
+                <div class="col">
+                    
                 </div>
             </div>
         </div>
