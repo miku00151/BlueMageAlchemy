@@ -50,8 +50,12 @@
     </head>
     <body>
         <h1 id="game-title" class="p-3">藍魔法師煉金</h1>
+
+        <!--主遊戲畫面-->
+
         <div id="main-game" class="container">
             <p id="level" class="p-1">等級：</p>
+            <p id="money" class="p-1">金錢：</p>
             <div id="status-bars" class="container p-1">自身數值
                 <div id="mana-main" class="container p-0">
                     <div id="mana-label">魔力值</div>
@@ -79,6 +83,23 @@
                                 <div id="hydrogen-bar" class="progress-bar progress-bar-striped progress-bar-animated bg-danger" role="progressbar" style="width: 12%;"></div>
                             </div>
                         </div>
+                        <div id="chlorine-main" class="container p-0">氯(Cl)
+                            <div id="chlorine" class="progress">
+                                <div id="chlorine-bar" class="progress-bar progress-bar-striped progress-bar-animated bg-success" role="progressbar" style="width: 12%;"></div>
+                            </div>
+                        </div>
+                        <div id="sulfur-main" class="container p-0">硫(S)
+                            <div id="sulfur" class="progress">
+                                <div id="sulfur-bar" class="progress-bar progress-bar-striped progress-bar-animated bg-warning" role="progressbar" style="width: 12%;"></div> 
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div id="silicon-main" class="container p-0">矽(Si)
+                            <div id="silicon" class="progress">
+                                <div id="silicon-bar" class="progress-bar progress-bar-striped progress-bar-animated bg-gray" role="progressbar" style="width: 12%;"></div>
+                            </div>
+                        </div>
                         <div id="oxygen-main" class="container p-0">氧(O)
                             <div id="oxygen" class="progress">
                                 <div id="oxygen-bar" class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" style="width: 12%;"></div> 
@@ -90,28 +111,11 @@
                                 <div id="nitrogen-bar" class="progress-bar progress-bar-striped progress-bar-animated bg-orange" role="progressbar" style="width: 12%;"></div>
                             </div>
                         </div>
-                    </div>
-                    <div class="col">
-                        <div id="silicon-main" class="container p-0">矽(Si)
-                            <div id="silicon" class="progress">
-                                <div id="silicon-bar" class="progress-bar progress-bar-striped progress-bar-animated bg-gray" role="progressbar" style="width: 12%;"></div>
-                            </div>
-                        </div>
-                        <div id="chlorine-main" class="container p-0">氯(Cl)
-                            <div id="chlorine" class="progress">
-                                <div id="chlorine-bar" class="progress-bar progress-bar-striped progress-bar-animated bg-success" role="progressbar" style="width: 12%;"></div>
-                            </div>
-                        </div>
-                        <div id="sulfur-main" class="container p-0">硫(S)
-                            <div id="sulfur" class="progress">
-                                <div id="sulfur-bar" class="progress-bar progress-bar-striped progress-bar-animated bg-warning" role="progressbar" style="width: 12%;"></div> 
-                            </div>
-                        </div>
                         <div id="phosphorus-main" class="container p-0">磷(P)
                             <div id="phosphorus" class="progress">
                                 <div id="phosphorus-bar" class="progress-bar progress-bar-striped progress-bar-animated bg-purple" role="progressbar" style="width: 12%;"></div>
                             </div>
-                        </div>
+                        </div>                        
                     </div>
                 </div>
             </div>
@@ -141,10 +145,10 @@
                     </div>
                 </div>
             </div>
-            <div id="bottons" class="container p-1">操作
+            <div id="buttons" class="container p-1">操作
                 <div class="d-grid gap-2 d-flex justify-content-end">
-                    <button id="digSand" class="btn bg-sand box-sand-shadow">挖沙</button>
                     <button id="digOre" class="btn bg-ore box-ore-shadow text-light">挖礦</button>
+                    <button id="digSand" class="btn bg-sand box-sand-shadow">挖沙</button>
                     <button id="addWater" class="btn btn-primary">加水</button>
                 </div>
                 <div class="row p-3"></div>
@@ -154,19 +158,113 @@
                 </div>
                 <div class="row p-3"></div>
                 <div class="d-grid gap-2 d-flex justify-content-end">
-                    <button id="refineElement" class="btn btn-outline-primary">元素提煉</button>
-                    <button id="alchemiteItem" class="btn btn-outline-primary">物品煉成</button>
+                    <button id="refineElement" data-bs-toggle="modal" data-bs-target="#refineElementModal" class="btn btn-outline-primary">元素提煉</button>
+                    <button id="alchemiteItem" data-bs-toggle="modal" data-bs-target="#alchemiteItemModal" class="btn btn-outline-primary">物品煉成</button>
                 </div>
                 <div class="row p-3"></div>
                 <div class="d-grid gap-2 d-flex justify-content-end">
-                    <button id="manageEmployee" class="btn btn-outline-primary">僱員管理</button>
-                    
-                    <button id="manageItem" class="btn btn-outline-primary">物品管理</button>
-                    <button id="openShop" class="btn btn-outline-primary">打開商店</button>
+                    <button id="manageEmployee" data-bs-toggle="modal" data-bs-target="#employeeModal" class="btn btn-outline-primary">員工管理</button>
+                    <button id="manageArea" data-bs-toggle="modal" data-bs-target="#AreaModal" class="btn btn-outline-primary">地區管理</button>
+                    <button id="manageItem" data-bs-toggle="modal" data-bs-target="#itemsModal" class="btn btn-outline-primary">物品管理</button>
+                    <button id="openShop" data-bs-toggle="modal" data-bs-target="#shopModal" class="btn btn-outline-primary">打開商店</button>
                 </div>
-                
+                <div class="row p-3"></div>
             </div>
         </div>
+
+        <!--互動視窗-->
+
+        <div id="shopModal" class="modal fade" data-bs-backdrop="static" data-bs-keyboard="false">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <strong>商店</strong>
+                    </div>
+                    <div class="modal-body">
+
+                    </div>
+                    <div class="modal-footer">
+                        <button class="btn btn-secondary" data-bs-dismiss="modal">離開</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="itemsModal" class="modal fade" data-bs-backdrop="static" data-bs-keyboard="false">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <strong>物品</strong>
+                    </div>
+                    <div class="modal-body">
+
+                    </div>
+                    <div class="modal-footer">
+                        <button class="btn btn-secondary" data-bs-dismiss="modal">離開</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="employeeModal" class="modal fade" data-bs-backdrop="static" data-bs-keyboard="false">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <strong>員工</strong>
+                    </div>
+                    <div class="modal-body">
+
+                    </div>
+                    <div class="modal-footer">
+                        <button class="btn btn-secondary" data-bs-dismiss="modal">離開</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="AreaModal" class="modal fade" data-bs-backdrop="static" data-bs-keyboard="false">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <strong>地區</strong>
+                    </div>
+                    <div class="modal-body">
+
+                    </div>
+                    <div class="modal-footer">
+                        <button class="btn btn-secondary" data-bs-dismiss="modal">離開</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="refineElementModal" class="modal fade" data-bs-backdrop="static" data-bs-keyboard="false">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <strong>元素提煉</strong>
+                    </div>
+                    <div class="modal-body">
+
+                    </div>
+                    <div class="modal-footer">
+                        <button class="btn btn-secondary" data-bs-dismiss="modal">離開</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="alchemiteItemModal" class="modal fade" data-bs-backdrop="static" data-bs-keyboard="false">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <strong>物品煉成</strong>
+                    </div>
+                    <div class="modal-body">
+
+                    </div>
+                    <div class="modal-footer">
+                        <button class="btn btn-secondary" data-bs-dismiss="modal">離開</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <script src="libs/elements.js"></script>
         <script src="libs/items.js"></script>
         <script src="libs/mage.js"></script>
